@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Dele article
+{% endblock title %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <p>Rostdan ham <a href="{% url 'article_detail' article.pk %}">{{article.title}}</a>ni o'chirmoqchimisiz?</p>
+        <button class="btn btn-danger m-2" type="submit">O'chirish</button>
+    </form>
+{% endblock content %}

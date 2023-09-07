@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} {{object.title| slice:'15'}} {% endblock title %}
+
+{% block content %}
+    <div class="article-entry">
+        <h2>{{object.title}}</h2>
+        <p>{{object.author}} | {{object.date}}</p>
+        <p>{{object.body}}</p>
+    </div>
+
+    <p><a href="{% url 'article_update' article.pk %}">O'zgartirish</a> | 
+    <a href="{% url 'article_delete' article.pk %}">O'chirish</a> </p> 
+    <p><a href="{% url 'article_list' %}">Articllar ro'yhati</a>ga qaytish</p>
+
+{% endblock content %}
